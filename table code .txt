@@ -1,0 +1,78 @@
+CREATE TABLE USER_ACCOUNT_T
+(UserID int NOT NULL,
+UserFirstName VARCHAR(50),
+UserLastName VARCHAR(50),
+UserAddress VARCHAR(50),
+UserCity VARCHAR(50),
+UserState VARCHAR(50),
+UserPhone int,
+UserDOB DATE,
+UserEmail VARCHAR(50) NOT NULL,
+UserPassword CHAR(60) NOT NULL,
+CreditCardNumber int,)
+
+ 
+CREATE TABLE LIBRARIAN_T
+(LibrarianID int NOT NULL,
+LibrarianFirstName VARCHAR(50),
+LibrarianLastName VARCHAR(50),
+LibrarianAddress VARCHAR(50),
+LibrarianCity VARCHAR(50),
+LibrarianState VARCHAR(50),
+LibrarianPhone int,
+LibrarianDOB DATE ,
+LibrarianEmail VARCHAR(50) NOT NULL,
+LibrarianPassword CHAR(60) NOT NULL,
+LibrarianSalary DECIMAL(10,2))
+
+CONTRAINT Librarian_PK PRIMARY KEY (LibrarianID)
+
+CREATE TABLE ADMIN_T
+(AdminID int NOT NULL,
+AdminFirstName VARCHAR(50),
+AdminLastName VARCHAR(50),
+AdminAddress VARCHAR(50),
+AdminCity VARCHAR(50),
+AdminState VARCHAR(50),
+AdminPhone int,
+AdminDOB DATE,
+AdminEmail VARCHAR(50) NOT NULL,
+AdminPassword CHAR(60) NOT NULL,
+AdminSalary DECIMAL(10,2))
+
+CONTRAINT Admin_PK PRIMARY KEY (AdminID)
+
+CREATE TABLE AUTHOR_T 
+(AuthorID int UNIQUE,
+AuthorFirstName VARCHAR(50),
+AuthorLastName VARCHAR(50))
+
+CREATE TABLE PUBLISHER_T
+(PublisherID int UNIQUE,
+PublisherName VARCHAR(50))
+
+CREATE TABLE ITEM_T 
+(ItemID int NOT NULL, 
+Title VARCHAR(50),
+Author VARCHAR(50),
+Publisher VARCHAR(50),
+DatePublished DATE,
+PurchasePrice DECIMAL(10,2),
+RentalPrice DECIMAL(10,2),
+ItemType VARCHAR(50),
+Genre VARCHAR(50),
+Duration VARCHAR(50))
+
+CONTRAINT Item_PK PRIMARY KEY (ItemID),
+CONTRAINT Item_FK1 FOREIGN KEY (Author) REFERENCES AUTHOR_T(AuthorID),
+CONTRAINT Item_FK2 FOREIGN KEY (Publisher) REFERENCES PUBLISHER_T(PublisherID))
+
+CREATE TABLE ITEMSTOCK_T
+(ItemNumber int NOT NULL,
+QUANTITY int)
+
+CONTRAINT ItemStock_FK1 FOREIGN KEY (ItemNumber) REFERENCES ITEM_T(ItemID))
+
+
+
+DESKTOP-PPU1LP7\SQLEXPRESS
