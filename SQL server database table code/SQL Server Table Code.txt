@@ -1,0 +1,94 @@
+CREATE TABLE USER_T
+(UserID int NOT NULL PRIMARY KEY,
+UserFirstName VARCHAR(50),
+UserLastName VARCHAR(50),
+UserAddress VARCHAR(50),
+UserCity VARCHAR(50),
+UserState VARCHAR(50),
+UserZipCode int,
+UserPhone Varchar(50),
+UserDOB DATE,
+UserEmail VARCHAR(50) NOT NULL,
+UserPassword CHAR(66) NOT NULL,)
+
+ 
+CREATE TABLE LIBRARIAN_T
+(LibrarianID int NOT NULL PRIMARY KEY,
+LibrarianFirstName VARCHAR(50),
+LibrarianLastName VARCHAR(50),
+LibrarianAddress VARCHAR(50),
+LibrarianCity VARCHAR(50),
+LibrarianZipCode int,
+LibrarianState VARCHAR(50),
+LibrarianPhone VARCHAR(50),
+LibrarianDOB DATE ,
+LibrarianEmail VARCHAR(50) NOT NULL,
+LibrarianPassword CHAR(66) NOT NULL,
+LibrarianSalary DECIMAL(10,2))
+
+
+CREATE TABLE ADMIN_T
+(AdminID int NOT NULL PRIMARY KEY,
+AdminFirstName VARCHAR(50),
+AdminLastName VARCHAR(50),
+AdminAddress VARCHAR(50),
+AdminCity VARCHAR(50),
+AdminZipCode int
+AdminState VARCHAR(50),
+AdminPhone VARCHAR(50),
+AdminDOB DATE,
+AdminEmail VARCHAR(50) NOT NULL,
+AdminPassword CHAR(66) NOT NULL,
+AdminSalary DECIMAL(10,2))
+
+CREATE TABLE AUTHOR_T 
+(AuthorID int NOT NULL UNIQUE,
+AuthorFirstName VARCHAR(50),
+AuthorLastName VARCHAR(50))
+
+CREATE TABLE PUBLISHER_T
+(PublisherID int NOT NULL UNIQUE,
+PublisherName VARCHAR(50))
+
+CREATE TABLE ITEM_T 
+(ItemID int NOT NULL PRIMARY KEY, 
+Title VARCHAR(50),
+Author int ,
+Publisher int ,
+DatePublished DATE,
+PurchasePrice DECIMAL(10,2),
+RentalPrice DECIMAL(10,2),
+ItemType VARCHAR(50),
+Genre VARCHAR(50),
+Duration VARCHAR(50))
+
+CREATE TABLE ITEMSTOCK_T
+(ItemNumber int NOT NULL,
+Quantity int,
+Description VARCHAR(100))
+
+
+CREATE TABLE CREDITCARD_T
+(UserID int,
+CardHolderName VARCHAR(50),
+CardNumber VARCHAR(50),
+CardExpDate DATE,
+CardCVV int,
+CardAddress VARCHAR(50),
+CardCity VARCHAR(50),
+CardZipCode int,
+CardState VARCHAR(50))
+
+CREATE TABLE ITEMHOLD_T
+(
+UserID int,
+ItemHold1 int,
+ItemHold2 int,
+ItemHold3 int,
+ItemHold4 int, 
+ItemHold5 int,)
+
+CREATE TABLE LIBRARIAN_CARD
+( CardNumber int,
+IssueDate DATE,
+AccountStatus VARCHAR(50))
